@@ -1,4 +1,5 @@
-function playGame(playerInput){
+{
+    function playGame(playerInput){
     clearMessages();
 
     /*let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier , 3: nożyce')
@@ -13,10 +14,10 @@ function playGame(playerInput){
     } else {
         playerMove = 'nieznany ruch';
     }*/
-    let playerMove = getMoveName(playerInput);
+    const playerMove = getMoveName(playerInput);
     printMessage('Twój ruch to: ' + playerMove);
 
-    let randomNumber = Math.floor(Math.random() * 3 + 1);
+    const randomNumber = Math.floor(Math.random() * 3 + 1);
     console.log('Wylosowana liczba to: ' + randomNumber);
 
     /*if(randomNumber == 1){
@@ -27,7 +28,7 @@ function playGame(playerInput){
     computerMove = 'nożyce';
     }*/
 
-    let computerMove = getMoveName(randomNumber);
+    const computerMove = getMoveName(randomNumber);
     printMessage('Mój ruch to: ' + computerMove);
     console.log('Ruch komputera to : ' + computerMove);
 
@@ -51,25 +52,28 @@ function playGame(playerInput){
         printMessage('Komputer wygrywa!');
     } */
 
-    let gameResult = displayResult(computerMove,playerMove);
+    const gameResult = displayResult(computerMove,playerMove);
+    }
+    
+    function buttonRock(){
+        playGame(1)
+        console.log('Player move- Rock');
+    }
+
+    function buttonPaper(){
+        playGame(2)
+        console.log('Player move- Paper');
+    }
+
+    function buttonScissors(){
+        playGame(3)
+        console.log('Player move- Scissors');
+    }
+
+    document.getElementById('play-rock').addEventListener('click', buttonRock);
+
+    document.getElementById('play-paper').addEventListener('click', buttonPaper);
+
+    document.getElementById('play-scissors').addEventListener('click', buttonScissors);
+
 }
-function buttonRock(){
-    playGame(1)
-    console.log('Player move- Rock');
-  }
-
-function buttonPaper(){
-    playGame(2)
-    console.log('Player move- Paper');
-}
-
-function buttonScissors(){
-    playGame(3)
-    console.log('Player move- Scissors');
-  }
-
-document.getElementById('play-rock').addEventListener('click', buttonRock);
-
-document.getElementById('play-paper').addEventListener('click', buttonPaper);
-
-document.getElementById('play-scissors').addEventListener('click', buttonScissors);
