@@ -1,25 +1,24 @@
 {
-    function playGame(playerInput){
+    const playGame = function (playerInput){
     clearMessages();
 
-    const playerMove = getMoveName(playerInput);
+    const playerMove = getMoveName(playerInput),
+        randomNumber = Math.floor(Math.random() * 3 + 1);
+        computerMove = getMoveName(randomNumber);
+
     printMessage('Twój ruch to: ' + playerMove);
-
-    const randomNumber = Math.floor(Math.random() * 3 + 1);
-
-    const computerMove = getMoveName(randomNumber);
     printMessage('Mój ruch to: ' + computerMove);
-
+    
     const gameResult = displayResult(computerMove,playerMove);
     }
     
-    function buttonRock(){
+    const buttonRock = function (){
         playGame(1)
     }
-    function buttonPaper(){
+    const buttonPaper = function (){
         playGame(2)
     }
-    function buttonScissors(){
+    const buttonScissors = function (){
         playGame(3)
     }
 
